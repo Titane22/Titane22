@@ -42,8 +42,8 @@ logo:                  /assets/img/logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                <Lee> <Sichang>
-  email:               <titane@gmail.com>
+  name:                <firstname> <lastname>
+  email:               <mail@domain.tld>
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
@@ -86,7 +86,7 @@ theme: jekyll-theme-hydejack
 # You can uncomment `theme` above and replace it with `remote_theme` here iff you are using the 
 # `jekyll-remote-theme` plugin (which is the case when using the legacy GitHub Pages pipeline).
 # This will fetch the `v9` branch of the public Hydejack repository on GitHub.
-remote_theme: hydecorp/hydejack@v9
+# remote_theme: hydecorp/hydejack@v9
 
 # Customizaton
 # ----------------------------------------------------------------------------------------
@@ -421,4 +421,4 @@ jekyll_compose:
         path: /assets/img/sidebar-bg.jpg
       links:
         - title: Project Link
-          url: https://titane22.github.io/
+          url: https://example.com

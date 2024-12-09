@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Documentation
+title: Game Design
 description: >
-  Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
+  ゲームデザイン分析及びスクラップ
 hide_description: true
 sitemap: false
 permalink: /docs/

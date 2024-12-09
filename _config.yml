@@ -50,9 +50,9 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Example
+  - title:             Posts
     url:               /example/
-  - title:             Documentation
+  - title:             Game Design
     url:               /docs/
   - title:             About
     url:               /about/

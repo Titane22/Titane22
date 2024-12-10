@@ -54,6 +54,8 @@ menu:
     url:               /example/
   - title:             Game Design
     url:               /docs/
+  - title:             Projects
+    url:               /docs/
   - title:             About
     url:               /about/
 

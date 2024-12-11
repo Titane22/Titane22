@@ -51,11 +51,13 @@ author:
 # Add links to the sidebar.
 menu:
   - title:             Posts
-    url:               /example/
+    url:               /Posts/
   - title:             Game Design
-    url:               /docs/
+    url:               /GameDesign/
   - title:             Projects
-    url:               /docs/
+    url:               /Projects/
+  - title:             IT
+    url:               /IT/
   - title:             About
     url:               /about/
 
@@ -175,7 +177,7 @@ defaults:
         type:          WebPage
 
 kramdown:
-  math_engine:         katex
+  math_engine:         mathjax
   math_engine_opts:    {}
   footnote_backlink:   '&#x21a9;&#xfe0e;'
 
@@ -275,15 +277,36 @@ hydejack:
     # Set to `true` to allow visitors to switch between light and dark mode.
     icon:              true
 
-  # ⚡️ DANGER ZONE ⚡️
-  # ----------------
-  # This is an _experimental_ feature.
-  # Only use if you know what Service Workers are and how they can impact your site!
-  offline:
-    enabled:           false
-    cache_version:     13
-    precache_assets:
-      - /assets/img/swipe.svg
+# JavaScript 설정
+include: 
+  - assets/js
+  - assets/css
+
+# Plugins 설정
+plugins:
+  - jekyll-include-cache
+  - jekyll-default-layout
+  - jekyll-feed
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+  - jekyll-include-cache
+  - jekyll-last-modified-at
+
+# ⚡️ DANGER ZONE ⚡️
+# ----------------
+# This is an _experimental_ feature.
+# Only use if you know what Service Workers are and how they can impact your site!
+offline:
+  enabled:           false
+  cache_version:     13
+  precache_assets:
+    - /assets/img/swipe.svg
 
 
 # Collections
@@ -301,6 +324,10 @@ collections:
   projects:
     permalink:         /projects/:path/
     output:            true
+
+  it_docs:
+    output: true
+    permalink: /IT/:path/
 
 
 # File inclusion/exclusion
@@ -320,24 +347,6 @@ include:
   - _routes.json
   - .well-known
   - LICENSE.md
-
-
-# Plugins
-# ----------------------------------------------------------------------------------------
-
-plugins:
-  - jekyll-default-layout
-  - jekyll-feed
-  - jekyll-optional-front-matter
-  - jekyll-paginate
-  - jekyll-readme-index
-  - jekyll-redirect-from
-  - jekyll-relative-links
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-titles-from-headings
-  - jekyll-include-cache
-  - jekyll-last-modified-at
 
 
 # SEO Tag

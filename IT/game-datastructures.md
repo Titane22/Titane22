@@ -1,148 +1,80 @@
 ---
 layout: page
-title: 자료구조와 알고리즘
+title: 게임 개발을 위한 자료구조와 알고리즘
 description: >
-  게임 개발에서 자주 사용되는 자료구조와 알고리즘을 설명합니다.
-kramdown:
-  math_engine: mathjax
+  게임 개발에서 자주 사용되는 자료구조와 알고리즘을 알아봅니다.
+categories: [IT]
+tags: [game-development, data-structures, algorithms]
 ---
 
-# 자료구조와 알고리즘
+# 게임 개발자를 위한 자료구조와 알고리즘
 
 ## 기본 자료구조
-### 배열과 동적 배열
-배열 연산의 복잡도:
 
-$$
-\text{Array Access: } O(1) \text{ for } A[i]
-$$
+### 1. 동적 배열
+```cpp
+template<typename T>
+class DynamicArray {
+    T* data;
+    size_t size;
+    size_t capacity;
+public:
+    void Add(const T& item);
+    void Remove(size_t index);
+    T& operator[](size_t index);
+};
+```
 
-$$
-\text{Dynamic Array Growth: } capacity_{new} = capacity_{old} \times 2
-$$
+### 2. 연결 리스트
+- 단일 연결 리스트
+- 이중 연결 리스트
+- 순환 리스트
 
-$$
-\text{Amortized Cost: } O(1) \text{ for insertion}
-$$
+### 3. 트리 구조
+- 이진 트리
+- 쿼드트리
+- 옥트리
 
-### 연결 리스트
-연결 리스트의 구조와 연산:
+## 게임 특화 자료구조
 
-$$
-\text{Node Structure: } Node = \left[
-\begin{array}{ccc}
-data & next & prev
-\end{array}
-\right]
-$$
+### 1. 씬 그래프
+- 계층 구조
+- 공간 분할
+- 렌더링 최적화
 
-$$
-\text{List Operations: } \begin{cases}
-O(1) & \text{for insert/delete} \\
-O(n) & \text{for search}
-\end{cases}
-$$
+### 2. 객체 풀
+```cpp
+template<typename T>
+class ObjectPool {
+    vector<T*> activeObjects;
+    vector<T*> inactiveObjects;
+public:
+    T* Acquire();
+    void Release(T* obj);
+};
+```
 
-### 트리와 그래프
-트리와 그래프의 기본 속성:
+### 3. 컴포넌트 시스템
+- 엔티티-컴포넌트 시스템
+- 데이터 지향 설계
 
-$$
-\text{Binary Tree Node: } Node = \left[
-\begin{array}{ccc}
-data & left & right
-\end{array}
-\right]
-$$
+## 게임 알고리즘
 
-$$
-\text{Tree Height: } h = \log_2(n + 1)
-$$
+### 1. 경로찾기
+- A* 알고리즘
+- 다익스트라 알고리즘
+- 내비게이션 메시
 
-$$
-\text{Graph: } G = (V, E)
-$$
+### 2. 인공지능
+- 상태 기계
+- 행동 트리
+- 목표 지향 행동
 
-### 해시 테이블
-해시 테이블의 핵심 개념:
+### 3. 최적화 알고리즘
+- 공간 분할
+- LOD (Level of Detail)
+- 컬링 시스템
 
-$$
-\text{Hash Function: } h(k) = k \bmod m
-$$
-
-$$
-\text{Load Factor: } \alpha = \frac{n}{m}
-$$
-
-$$
-\text{Collision Resolution: } h_i(k) = (h(k) + i) \bmod m
-$$
-
-## 게임 개발 관련 알고리즘
-### 경로찾기 (A*, Dijkstra)
-경로찾기 알고리즘의 핵심 수식:
-
-$$
-\text{A* Function: } f(n) = g(n) + h(n)
-$$
-
-$$
-\text{where: } \begin{cases}
-g(n) = \text{cost from start to n} \\
-h(n) = \text{estimated cost from n to goal}
-\end{cases}
-$$
-
-$$
-\text{Dijkstra: } d[v] = \min(d[v], d[u] + w(u,v))
-$$
-
-### 공간 분할
-공간 분할 기준:
-
-$$
-\text{Quadtree Split: } \begin{cases}
-(x, y) & \text{for 2D} \\
-depth \leq d_{max}
-\end{cases}
-$$
-
-$$
-\text{Octree Split: } \begin{cases}
-(x, y, z) & \text{for 3D} \\
-depth \leq d_{max}
-\end{cases}
-$$
-
-### 게임 AI 알고리즘
-AI 알고리즘의 수학적 표현:
-
-$$
-\text{State Machine: } S \xrightarrow{action} S'
-$$
-
-$$
-\text{Behavior Tree: } BT = \begin{cases}
-\text{Sequence} \\
-\text{Selector} \\
-\text{Decorator}
-\end{cases}
-$$
-
-$$
-\text{Decision Tree: } P(a|s) = \frac{P(s|a)P(a)}{P(s)}
-$$
-
-### 충돌 감지 최적화
-충돌 감지의 복잡도:
-
-$$
-\text{Broad Phase: } O(n \log n) \text{ with spatial partitioning}
-$$
-
-$$
-\text{Narrow Phase: } O(m) \text{ where } m = \text{number of candidates}
-$$
-
-$$
-\text{Total Complexity: } O(n \log n + m)
-$$
+## 참고 자료
+- [게임 프로그래밍 패턴](https://gameprogrammingpatterns.com/)
+- [데이터 지향 설계](https://www.dataorienteddesign.com/dodbook/)

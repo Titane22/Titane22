@@ -26,6 +26,21 @@ tags: [sorting, algorithms, computer-science]
 - 장점: 구현이 간단하고 추가 메모리가 필요 없음
 - 단점: 큰 데이터셋에서는 비효율적
 
+### 구현 (C++)
+
+```cpp
+void selectionSort(int arr[], int n) {
+    for(int i = 0; i < n-1; i++) {
+        int min_idx = i;
+        for(int j = i+1; j < n; j++) {
+            if(arr[j] < arr[min_idx])
+                min_idx = j;
+        }
+        swap(arr[min_idx], arr[i]);
+    }
+}
+```
+
 ## 2. 버블 정렬 (Bubble Sort)
 
 ![Bubble Sort Animation](/assets/img/blog/sorting-algorithms/bubble.gif)
@@ -40,6 +55,20 @@ tags: [sorting, algorithms, computer-science]
 - 공간 복잡도: O(1)
 - 장점: 구현이 매우 간단
 - 단점: 매우 비효율적인 정렬 방식
+
+### 구현 (C++)
+
+```cpp
+void bubbleSort(int arr[], int n) {
+    for(int i = 0; i < n-1; i++) {
+        for(int j = 0; j < n-i-1; j++) {
+            if(arr[j] > arr[j+1]) {
+                swap(arr[j], arr[j+1]);
+            }
+        }
+    }
+}
+```
 
 ## 3. 삽입 정렬 (Insertion Sort)
 
@@ -56,6 +85,22 @@ tags: [sorting, algorithms, computer-science]
 - 장점: 작은 데이터셋에서 효율적, 안정적인 정렬
 - 단점: 큰 데이터셋에서는 비효율적
 
+### 구현 (C++)
+
+```cpp
+void insertionSort(int arr[], int n) {
+  for(int i = 1; i < n; i++) {
+  int key = arr[i];
+        int j = i - 1;
+        while(j >= 0 && arr[j] > key) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = key;
+    }
+}
+```
+
 ## 4. 병합 정렬 (Merge Sort)
 
 ![Merge Sort Animation](/assets/img/blog/sorting-algorithms/merge.gif)
@@ -70,6 +115,51 @@ tags: [sorting, algorithms, computer-science]
 - 공간 복잡도: O(n)
 - 장점: 안정적인 정렬, 대용량 데이터 처리에 적합
 - 단점: 추가 메모리 공간 필요
+
+### 구현 (C++)
+
+```cpp
+void merge(int arr[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    vector<int> L(n1), R(n2);
+    for(int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for(int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+    int i = 0, j = 0, k = left;
+    while(i < n1 && j < n2) {
+        if(L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {  
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+    while(i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    while(j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+  }
+}
+
+void mergeSort(int arr[], int left, int right) {
+  if(left < right) {
+  int mid = left + (right - left) / 2;
+  mergeSort(arr, left, mid);
+  mergeSort(arr, mid + 1, right);
+  merge(arr, left, mid, right);
+  }
+}
+```
 
 ## 5. 힙 정렬 (Heap Sort)
 
@@ -86,6 +176,33 @@ tags: [sorting, algorithms, computer-science]
 - 장점: 추가 메모리가 필요 없음
 - 단점: 불안정 정렬
 
+### 구현 (C++)
+
+```cpp
+void heapify(int arr[], int n, int i) {
+    int largest = i;
+    int left = 2 i + 1;
+    int right = 2 i + 2;
+    if(left < n && arr[left] > arr[largest])
+        largest = left;
+    if(right < n && arr[right] > arr[largest])
+        largest = right;
+    if(largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest); // 재귀적으로 힙 속성 복구
+    }
+}
+
+void heapSort(int arr[], int n) {
+    for(int i = n/2 - 1; i >= 0; i--)
+        heapify(arr, n, i); // 힙 속성 복구
+    for(int i = n-1; i >= 0; i--) {
+        swap(arr[0], arr[i]); // 루트와 마지막 요소 교환
+        heapify(arr, i, 0); // 힙 속성 복구
+    }
+}
+```
+
 ## 6. 퀵 정렬 (Quick Sort)
 
 ![Quick Sort Animation](/assets/img/blog/sorting-algorithms/quick.gif)
@@ -101,6 +218,32 @@ tags: [sorting, algorithms, computer-science]
 - 장점: 평균적으로 가장 빠른 정렬 알고리즘
 - 단점: 피벗 선택에 따라 성능 차이가 큼
 
+### 구현 (C++)
+
+```cpp
+void quickSort(int arr[], int low, int high) {
+    if(low < high) {
+        int pivot = partition(arr, low, high);
+        quickSort(arr, low, pivot - 1);
+        quickSort(arr, pivot + 1, high);
+    }
+}
+
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    
+    for(int j = low; j <= high-1; j++) {
+        if(arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+```
+
 ## 7. 기수 정렬 (Radix Sort)
 
 ![Radix Sort Animation](/assets/img/blog/sorting-algorithms/radix.gif)
@@ -115,6 +258,38 @@ tags: [sorting, algorithms, computer-science]
 - 공간 복잡도: O(n + k) (k는 기수의 크기)
 - 장점: 특정 조건에서 매우 빠른 성능
 - 단점: 자릿수가 있는 데이터에만 적용 가능
+
+### 구현 (C++)
+
+```cpp
+void countingSort(int arr[], int n, int exp) {
+    vector<int> output(n);
+    vector<int> count(10, 0);
+    
+    for(int i = 0; i < n; i++)
+        count[(arr[i]/exp)%10]++;
+        
+    for(int i = 1; i < 10; i++)
+        count[i] += count[i-1];
+        
+    for(int i = n-1; i >= 0; i--) {
+        output[count[(arr[i]/exp)%10]-1] = arr[i];
+        count[(arr[i]/exp)%10]--;
+    }
+    
+    for(int i = 0; i < n; i++)
+        arr[i] = output[i];
+}
+
+void radixSort(int arr[], int n) {
+    int max_val = arr[0];
+    for(int i = 1; i < n; i++)
+        max_val = max(max_val, arr[i]);
+        
+    for(int exp = 1; max_val/exp > 0; exp *= 10)
+        countingSort(arr, n, exp);
+}
+```
 
 ## 정렬 알고리즘 비교
 

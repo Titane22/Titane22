@@ -2,79 +2,63 @@
 layout: page
 title: 게임 물리
 description: >
-  게임 개발에서 사용되는 물리 시스템의 기초 개념을 설명합니다.
-kramdown:
-  math_engine: mathjax
+  게임 개발에 필요한 물리 시스템의 기초를 알아봅니다.
+categories: [IT]
+tags: [game-development, physics]
 ---
 
-# 게임 물리
+# 게임 물리 시스템
 
-## 운동학 (Kinematics)
-### 속도와 가속도
+## 기본 물리 개념
 
-$$
-\text{Velocity: } v = \frac{dx}{dt}
-$$
+### 1. 힘과 운동
+- 뉴턴의 운동 법칙
+- 가속도와 속도
+- 질량과 무게
+- 마찰력
 
-$$
-\text{Acceleration: } a = \frac{dv}{dt} = \frac{d^2x}{dt^2}
-$$
+### 2. 충돌 처리
+- 충돌 감지
+- 충돌 응답
+- 탄성/비탄성 충돌
 
-### 운동 방정식
+## 물리 시뮬레이션
 
-$$
-\text{Position: } x(t) = x_0 + v_0t + \frac{1}{2}at^2
-$$
+### 1. 입자 시스템
+```cpp
+struct Particle {
+    Vector3 position;
+    Vector3 velocity;
+    Vector3 acceleration;
+    float mass;
+    
+    void Update(float deltaTime) {
+        velocity += acceleration * deltaTime;
+        position += velocity * deltaTime;
+    }
+};
+```
 
-$$
-\text{Velocity: } v(t) = v_0 + at
-$$
+### 2. 강체 동역학
+- 회전 운동
+- 토크와 각운동량
+- 관성 텐서
 
-$$
-\text{Force: } F = ma
-$$
+### 3. 제약 조건
+- 거리 제약
+- 각도 제약
+- 조인트 시스템
 
-## 충돌 감지 (Collision Detection)
-### 구체 충돌
+## 게임 물리 최적화
 
-$$
-\text{Collision occurs when: } \lVert\vec{p_1} - \vec{p_2}\rVert < r_1 + r_2
-$$
+### 1. 광역 충돌 감지
+- 공간 분할
+- 경계 볼륨 계층
 
-### AABB 충돌
+### 2. 연속 충돌 감지
+- 스위핑
+- 시간 기반 충돌
 
-$$
-\text{Collision occurs when: } |A_x - B_x| < \frac{A_{width} + B_{width}}{2} \text{ AND } |A_y - B_y| < \frac{A_{height} + B_{height}}{2}
-$$
-
-### 광선 투사 (Ray Casting)
-$$
-\text{Ray equation: } Ray(t) = \vec{origin} + t\vec{direction}
-$$
-
-## 충격과 운동량 (Impulse and Momentum)
-### 운동량과 충격량
-
-$$
-\text{Momentum: } p = mv
-$$
-
-$$
-\text{Impulse: } J = F\Delta t = \Delta p
-$$
-
-### 탄성 충돌
-
-$$
-\text{Final velocity (object 1): } v_{1f} = \frac{(m_1-m_2)v_{1i} + 2m_2v_{2i}}{m_1+m_2}
-$$
-
-$$
-\text{Conservation of momentum: } m_1v_{1i} + m_2v_{2i} = m_1v_{1f} + m_2v_{2f}
-$$
-
-### 마찰력
-
-$$
-\text{Friction force: } f = \mu N
-$$
+## 참고 자료
+- [게임 물리 프로그래밍](https://gafferongames.com/)
+- [물리 엔진 구현](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)

@@ -7,8 +7,6 @@ categories: [IT]
 tags: [game-development, physics]
 ---
 
-# 게임 물리 시스템
-
 ## 기본 물리 개념
 
 ### 1. 힘과 운동

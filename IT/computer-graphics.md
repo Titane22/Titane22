@@ -7,7 +7,6 @@ kramdown:
   math_engine: mathjax
 ---
 
-# 컴퓨터 그래픽스
 
 ## 3D 변환 (Transformations)
 ### 행렬 변환

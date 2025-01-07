@@ -18,3 +18,6 @@ hide_description: false
 * [Design Patterns](design-patterns) - 게임 디자인 패턴과 적용 사례
 * [Monetization](monetization) - 수익화 모델과 플레이어 경제
 * [User Experience](user-experience) - UI/UX 디자인과 플레이어 피드백
+
+## Game Design Theory
+* [보스 전투 디자인 원칙](boss-fight-design) - 효과적인 보스 전투 설계를 위한 5가지 핵심 원칙

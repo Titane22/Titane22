@@ -6,8 +6,6 @@ description: >
 hide_description: false
 ---
 
-# Navigation Link Proxy & Smart Link
-
 ## NavLink Proxy 개요
 * Navigation Link Proxy란?
   * 내비게이션 메시 상의 특별한 연결 지점
@@ -49,49 +47,55 @@ hide_description: false
 ## 구현 예제
 
 ### 1. 기본 NavLink 설정 
-cpp
+```cpp
 // NavLinkSetup.h
 UCLASS()
 class ACustomNavLink : public ANavLinkProxy
 {
-GENERATED_BODY()
-public:
-ACustomNavLink();
-virtual void BeginPlay() override;
-protected:
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Navigation")
-bool bSmartLinkIsEnabled;
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Navigation")
-FVector LinkRelativeStart;
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Navigation")
-FVector LinkRelativeEnd;
+    GENERATED_BODY()
+    public:
+    ACustomNavLink();
+    virtual void BeginPlay() override;
+
+    protected:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Navigation")
+    bool bSmartLinkIsEnabled;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Navigation")
+    FVector LinkRelativeStart;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Navigation")
+    FVector LinkRelativeEnd;
 };
 // NavLinkSetup.cpp
 ACustomNavLink::ACustomNavLink()
 {
-// 기본 설정
-bSmartLinkIsEnabled = true;
-// 링크 포인트 설정
-PointLinks.Empty();
-PointLinks.Add(FNavigationLink());
-PointLinks[0].Left = LinkRelativeStart;
-PointLinks[0].Right = LinkRelativeEnd;
+    // 기본 설정
+    bSmartLinkIsEnabled = true;
+
+    // 링크 포인트 설정
+    PointLinks.Empty();
+    PointLinks.Add(FNavigationLink());
+    PointLinks[0].Left = LinkRelativeStart;
+    PointLinks[0].Right = LinkRelativeEnd;
 }
+```
 ### 2. Smart Link 구현
 
-cpp
+```cpp
 // SmartLinkComponent.h
 UCLASS()
 class UCustomSmartLinkComponent : public UNavLinkCustomComponent
 {
-GENERATED_BODY()
+    GENERATED_BODY()
 public:
-// 스마트 링크 능력 정의
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Smart Link")
-TArray<FGameplayTag> RequiredAbilities;
-// 링크 사용 가능 여부 확인
-UFUNCTION(BlueprintCallable, Category = "Smart Link")
-bool CanUseSmartLink(ACharacter Character);
+    // 스마트 링크 능력 정의
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Smart Link")
+    TArray<FGameplayTag> RequiredAbilities;
+
+    // 링크 사용 가능 여부 확인
+    UFUNCTION(BlueprintCallable, Category = "Smart Link")
+    bool CanUseSmartLink(ACharacter Character);
 };
 ```
 

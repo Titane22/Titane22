@@ -7,8 +7,6 @@ categories: [IT]
 tags: [unreal-engine, animation, game-development]
 ---
 
-# 언리얼 엔진 루트 모션
-
 루트 모션(Root Motion)은 캐릭터의 움직임을 애니메이션 데이터를 기반으로 제어하는 기술입니다. 이를 통해 더욱 자연스럽고 정확한 캐릭터 움직임을 구현할 수 있습니다.
 
 ## 루트 모션의 이해

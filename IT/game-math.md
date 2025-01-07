@@ -7,8 +7,6 @@ categories: [IT]
 tags: [game-development, mathematics]
 ---
 
-# 게임 개발자를 위한 수학
-
 ## 벡터 (Vectors)
 
 ### 1. 2D 벡터

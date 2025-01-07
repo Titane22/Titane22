@@ -6,8 +6,6 @@ description: >
 hide_description: false
 ---
 
-# 게임 마테리얼 시스템
-
 ## PBR(Physically Based Rendering) 기초
 * PBR이란?
   * 물리 기반 렌더링의 개념

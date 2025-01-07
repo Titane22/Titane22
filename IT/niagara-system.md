@@ -6,8 +6,6 @@ description: >
 hide_description: false
 ---
 
-# 나이아가라 이펙트 시스템
-
 ## 나이아가라 시스템 개요
 * 나이아가라란?
   * 언리얼 엔진의 차세대 VFX 시스템

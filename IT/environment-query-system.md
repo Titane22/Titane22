@@ -6,7 +6,6 @@ description: >
 hide_description: false
 ---
 
-# 환경 쿼리 시스템 (EQS)
 
 ## EQS 개요
 * Environment Query System
@@ -106,51 +105,51 @@ hide_description: false
 ## 실전 구현 예제
 
 ### 1. 커버 포인트 찾기 
-```
-cpp
+```cpp
 // EQS_FindCover.h
 UCLASS()
 class UEnvQueryTest_CoverPosition : public UEnvQueryTest
 {
-GENERATED_BODY()
+    GENERATED_BODY()
 public:
-UPROPERTY(EditDefaultsOnly, Category = "Cover")
-float MinDistanceFromEnemy = 200.f;
-UPROPERTY(EditDefaultsOnly, Category = "Cover")
-float MaxDistanceFromEnemy = 800.f;
+    UPROPERTY(EditDefaultsOnly, Category = "Cover")
+    float MinDistanceFromEnemy = 200.f;
+    
+    UPROPERTY(EditDefaultsOnly, Category = "Cover")
+    float MaxDistanceFromEnemy = 800.f;
 };
+
 // 구현부
 virtual void RunTest(FEnvQueryInstance& QueryInstance) const override
 {
-UObject QueryOwner = QueryInstance.Owner.Get();
-for (FEnvQueryInstance::ItemIterator It(this, QueryInstance); It; ++It)
-{
-FVector ItemPos = GetItemLocation(QueryInstance, It.GetIndex());
-float DistanceToEnemy = // 적과의 거리 계산
-float Score = FMath::GetMappedRangeValueClamped(
-FVector2D(MinDistanceFromEnemy, MaxDistanceFromEnemy),
-FVector2D(1.0f, 0.0f),
-DistanceToEnemy
-);
-It.SetScore(TestPurpose, FilterType, Score, true);
-}
+    UObject QueryOwner = QueryInstance.Owner.Get();
+    for (FEnvQueryInstance::ItemIterator It(this, QueryInstance); It; ++It)
+    {
+        FVector ItemPos = GetItemLocation(QueryInstance, It.GetIndex());
+        float DistanceToEnemy = // 적과의 거리 계산
+        float Score = FMath::GetMappedRangeValueClamped(
+            FVector2D(MinDistanceFromEnemy, MaxDistanceFromEnemy),
+            FVector2D(1.0f, 0.0f),
+            DistanceToEnemy
+        );
+        It.SetScore(TestPurpose, FilterType, Score, true);
+    }
 }
 ```
 ### 2. 전술적 위치 선정
-```
-cpp:IT/environment-query-system.md
+```cpp
 // EQS_TacticalPosition.h
 UCLASS()
 class UEnvQueryTest_TacticalPosition : public UEnvQueryTest
 {
-GENERATED_BODY()
-public:
-UPROPERTY(EditDefaultsOnly, Category = "Tactical")
-float PreferredHeight = 100.f;
-UPROPERTY(EditDefaultsOnly, Category = "Tactical")
-float HeightImportance = 1.0f;
-UPROPERTY(EditDefaultsOnly, Category = "Tactical")
-float CoverImportance = 1.0f;
+    GENERATED_BODY()
+    public:
+    UPROPERTY(EditDefaultsOnly, Category = "Tactical")
+    float PreferredHeight = 100.f;
+    UPROPERTY(EditDefaultsOnly, Category = "Tactical")
+    float HeightImportance = 1.0f;
+    UPROPERTY(EditDefaultsOnly, Category = "Tactical")
+    float CoverImportance = 1.0f;
 };
 ```
 ## 디버깅 도구

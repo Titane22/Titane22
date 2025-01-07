@@ -6,8 +6,6 @@ description: >
 hide_description: false
 ---
 
-# 향상된 입력 시스템 (Enhanced Input System)
-
 ## 개요
 * Enhanced Input System이란?
   * 언리얼 5의 새로운 입력 처리 시스템
@@ -60,7 +58,7 @@ hide_description: false
   * Axis3D
 
 ## C++ 구현 
-cpp
+```cpp
 // 헤더 파일에서
 UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input)
 class UInputMappingContext DefaultMappingContext;
@@ -69,15 +67,15 @@ class UInputAction MoveAction;
 // CPP 파일에서
 void APlayerCharacter::SetupPlayerInputComponent(UInputComponent PlayerInputComponent)
 {
-if (UEnhancedInputComponent EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
-{
-EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Move);
-}
+    if (UEnhancedInputComponent EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
+    {
+        EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Move);
+    }
 }
 void APlayerCharacter::Move(const FInputActionValue& Value)
 {
-const FVector2D MovementVector = Value.Get<FVector2D>();
-AddMovementInput(FVector(MovementVector.X, MovementVector.Y, 0.0f));
+    const FVector2D MovementVector = Value.Get<FVector2D>();
+    AddMovementInput(FVector(MovementVector.X, MovementVector.Y, 0.0f));
 }
 ```
 

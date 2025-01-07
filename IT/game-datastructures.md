@@ -7,8 +7,6 @@ categories: [IT]
 tags: [game-development, data-structures, algorithms]
 ---
 
-# 게임 개발자를 위한 자료구조와 알고리즘
-
 ## 기본 자료구조
 
 ### 1. 동적 배열

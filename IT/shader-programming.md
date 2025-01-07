@@ -6,8 +6,6 @@ description: >
 hide_description: false
 ---
 
-# 쉐이더 프로그래밍
-
 ## 쉐이더의 기초
 * 쉐이더란?
   * GPU에서 실행되는 프로그램

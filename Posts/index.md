@@ -4,6 +4,7 @@ title: Posts
 description: >
   Welcome to my blog! Here you'll find my thoughts, experiences, and journey.
 hide_description: false
+
 ---
 
 ## Recent Posts

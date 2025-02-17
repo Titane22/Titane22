@@ -19,13 +19,11 @@ hide_description: false
 ### [Game Design](/GameDesign/)
 게임 디자인 방법론과 케이스 스터디를 정리합니다.
 
+### [Reviews](/Reviews/)
+게임, 도서, IT 기기 등 다양한 제품에 대한 리뷰를 공유합니다.
+
 ### [Projects](/Projects/)
 참여했던 프로젝트들의 포트폴리오입니다.
 
 ### [IT](/IT/)
 IT 관련 기술과 지식을 정리합니다.
-
-## Recent Updates
-
-* [최신 포스트 1](link-to-post1) - Coming soon
-* [최신 포스트 2](link-to-post2) - Coming soon 

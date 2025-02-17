@@ -56,7 +56,3 @@ struct Particle {
 ### 2. 연속 충돌 감지
 - 스위핑
 - 시간 기반 충돌
-
-## 참고 자료
-- [게임 물리 프로그래밍](https://gafferongames.com/)
-- [물리 엔진 구현](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)

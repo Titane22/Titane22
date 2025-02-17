@@ -21,3 +21,11 @@ hide_description: false
 
 ## Game Design Theory
 * [보스 전투 디자인 원칙](boss-fight-design) - 효과적인 보스 전투 설계를 위한 5가지 핵심 원칙
+* [로봇 슈팅 게임에서 '공정한' 자동 조준 시스템을 만드는 방법](auto-aim-system) - 유틸리티 기반의 자동 조준 시스템 설계
+
+## Graphics Optimization
+* [프러스텀 & 오클루전 컬링](culling-techniques) - 3D 렌더링 최적화를 위한 컬링 기법
+* [LOD 시스템](lod-system) - Level of Detail 시스템의 원리와 최적화 기법
+
+## Game AI Analysis
+* [The Last of Us AI Design](last-of-us-ai) - 라스트 오브 어스의 AI 시스템 분석: 감지, 전투, 동반자, 환경 상호작용

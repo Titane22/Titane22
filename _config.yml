@@ -50,14 +50,15 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Posts
+  - title:             Projects
     url:               /Posts/
   - title:             Game Design
     url:               /GameDesign/
-  - title:             Projects
+  - title:             Posts
     url:               /Projects/
   - title:             IT
     url:               /IT/
+
   - title:             About
     url:               /about/
 
@@ -175,6 +176,12 @@ defaults:
     values:
       seo:
         type:          WebPage
+
+  # 허용할 파일 형식 추가
+  - scope:
+      path: "assets/video"
+    values:
+      video: true
 
 kramdown:
   math_engine:         mathjax
@@ -418,14 +425,14 @@ jekyll_compose:
       image:
         path: /assets/img/sidebar-bg.jpg
     posts:
-      layout: post
+      layout: page
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
         path: /assets/img/sidebar-bg.jpg
     projects:
-      layout: project
+      layout: post
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.

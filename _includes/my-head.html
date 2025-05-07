@@ -1,0 +1,82 @@
+<!-- Add HTML tags here to be included in the head. You can delete the below: -->
+<link rel="dns-prefetch" href="https://assets.gumroad.com">
+
+<!-- 언어 선택기 스타일 -->
+<style>
+  .language-selector {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+  }
+  .language-selector .active {
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+  .language-selector a {
+    color: #4a4a4a;
+    text-decoration: none;
+  }
+  .language-selector a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<!-- MathJax Configuration -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  };
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="module">
+  const loadJS = x => new Promise(r => window.loadJS(x).addEventListener('load', r));
+
+  let p1, p2, io1, io2, embedCreated, overlayCreated;
+  document.querySelector('hy-push-state').addEventListener('load', () => {
+    io1 ||= new IntersectionObserver(async (entries) => {
+      if (entries.some(x => x.isIntersecting)) {
+        p1 = p1 || loadJS('https://gumroad.com/js/gumroad-embed.js');
+        await p1;
+        !embedCreated && await new Promise(function check1(res) {
+          if (typeof createGumroadEmbed !== 'undefined')  {
+            embedCreated = 1;
+            res(createGumroadEmbed());
+          }
+          else setTimeout(() => check1(res), 200);
+        });
+        await new Promise(function check2(res) {
+          if (typeof GumroadEmbed !== 'undefined') res(GumroadEmbed.reload());
+          else setTimeout(() => check2(res), 200);
+        });
+      }
+    }, { rootMargin: '1440px' });
+
+    io2 ||= new IntersectionObserver(async (entries) => {
+      if (entries.some(x => x.isIntersecting)) {
+        p2 = p2 || loadJS('https://gumroad.com/js/gumroad.js');
+        await p2;
+        !overlayCreated && await new Promise(function check(res) {
+          if (typeof createGumroadOverlay !== 'undefined') {
+            overlayCreated = 1;
+            res(createGumroadOverlay());
+          }
+          else setTimeout(() => check(res), 200);
+        });
+      }
+    }, { rootMargin: '300px' });
+
+    document.querySelectorAll('.gumroad-product-embed').forEach(el => io1.observe(el));
+    document.querySelectorAll('.gumroad-button').forEach(el => io2.observe(el));
+  });
+</script>

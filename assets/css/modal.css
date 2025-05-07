@@ -1,0 +1,126 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 1% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 700px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-header-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.modal-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects-container {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 60px;
+}
+
+.projects-container:last-child {
+  margin-bottom: 120px;
+}
+
+.projects-container ul {
+  margin: 0px 0px 0px -40px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projects-container ul li {
+  margin: 0px 0px 40px 0px;
+  width: 33.3333%;
+  padding-left: 40px;
+}
+
+.project-link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 45px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-link:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.project-link span {
+  display: inline-block;
+  margin-bottom: 25px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.03);
+  font-weight: 700;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover span {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.project-link p {
+  font-weight: 700;
+  color: #000;
+  font-size: 18px;
+  margin: 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}

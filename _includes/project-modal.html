@@ -1,0 +1,17 @@
+<!-- 모달 트리거 버튼 -->
+<div class="project-card" onclick="openModal('{{ include.id }}')">
+    {{ include.trigger | markdownify }}
+</div>
+
+<!-- 모달 내용 -->
+<div id="{{ include.id }}" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('{{ include.id }}')">&times;</span>
+        <div class="modal-header-image">
+            <img src="{{ include.image | default: 'default-image.jpg' }}" alt="Project Header Image">
+        </div>
+        <div class="modal-body">
+            {{ include.content | markdownify }}
+        </div>
+    </div>
+</div> 

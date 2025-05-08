@@ -43,8 +43,8 @@ lang: ja
 * [Potato & Fox ゲーム企画書](potato-fox) - ポテト & フォックス：私たちは誰よりも相性がいいけど、誰よりも一緒にいたくない友達関係
 * [Sheet of Witch ゲーム企画書](sheet-of-witch) - 魔女の備忘録：すべての出会いは別れに向かって進むが、その終わりがあるからこそ、今この瞬間はより大切なものとなる
 * [Casper Helper]()
-* [Parkour Hitman](parkour-hitman) - 파쿠르와 암살을 결합한 액션 게임
-* [バビロンの商人](babylon-merchant) - 古代バビロンを舞台にした交易シミュレーションゲーム
+* [Parkour Hitman](https://github.com/Titane22/Titane22/blob/main/assets/PDF/%E3%83%91%E3%83%BC%E3%82%AF%E3%83%AB%C2%B7%E3%83%92%E3%83%83%E3%83%88%E3%83%9E%E3%83%B3.pdf) - パルクールと暗殺を組み合わせたアクションゲーム
+* [バビロンの商人](https://github.com/Titane22/Titane22/blob/main/assets/PDF/%E3%83%90%E3%83%93%E3%83%AD%E3%83%B3%E3%81%AE%E5%95%86%E4%BA%BA.pdf) - 古代バビロンを舞台にした交易シミュレーションゲーム
 
 ## My System Design
 * [天才性成長能力値システム](genius-growth-system) - ゲームにおける天才性と成長を表現する能力値システムの設計

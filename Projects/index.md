@@ -45,3 +45,5 @@ hide_description: false
 #### Open World
 [任天堂はゼルダのオープンワールド問題をどう解決したか](https://www.4gamer.net/games/341/G034168/20170901120/)
 [The Most 'Alive' Game Ecosystems](https://youtu.be/NB0XmexIa5s?si=a4Ouvf0qeDJWRYP5)
+#### Level Design
+[What is Level Design?](https://www.youtube.com/watch?v=LKHvTrk6S_8)

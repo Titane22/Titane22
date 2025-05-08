@@ -1,7 +1,0 @@
-<div class="language-selector">
-  {% if page.lang == "ko" or page.lang == nil %}
-    <span class="active">한국어</span> | <a href="{{ site.baseurl }}/ja{{ page.url }}">日本語</a>
-  {% else %}
-    <a href="{{ site.baseurl }}{{ page.url | replace: '/ja/', '/' }}">한국어</a> | <span class="active">日本語</span>
-  {% endif %}
-</div> 

@@ -353,6 +353,16 @@ collections:
   projects:
     permalink:         /projects/:path/
     output:            true
+    directory:         Projects/_posts
+    sort_by:           date
+    sort_reverse:      true
+    defaults:
+      - scope:
+          path: ""
+          type: "projects"
+        values:
+          layout: "post"
+          category: "project"
 
   it_docs:
     output: true

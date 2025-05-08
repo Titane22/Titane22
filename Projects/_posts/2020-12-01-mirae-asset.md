@@ -7,6 +7,7 @@ sitemap: false
 hide_last_modified: true
 categories: [project]
 tags: [insurance, document-recognition]
+collection: projects
 ---
 
 ## 미래에셋생명 이미지시스템 [2019.12 - 2020.03]

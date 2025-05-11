@@ -2,11 +2,23 @@
 layout: page
 title: IT Knowledge Base
 description: >
-  A collection of IT concepts, technologies, and best practices.
+  A collection of IT concepts, technologies, and best practices. Curated with AI assistance for personal study and learning purposes
 hide_description: false
 ---
 
 # Categories
+
+## Modern C++
+* [C++23: The Next C++ Standard](next-cpp-standard) - C++23 표준의 주요 기능과 변경사항
+* [C++11 표준](cpp11-standards) - 모던 C++의 시작과 주요 기능 (이동 의미론, 람다, auto)
+* [C++14 표준](cpp14-standards) - C++14의 주요 기능과 변경사항
+* [C++17 표준](cpp17-standards) - C++17의 주요 기능과 변경사항
+* [C++20 표준](cpp20-standards) - C++20의 주요 기능 및 사용 예제 (Concepts, Ranges, Coroutines, Modules)
+* [C++23 표준](cpp23-standards) - C++23의 주요 기능 및 사용 예제 (Deducing this, 표준 라이브러리 개선점)
+* [CRTP와 Overload 패턴](cpp-patterns) - C++의 고급 템플릿 메타프로그래밍 패턴
+* [이벤트 디스패치](event-dispatch) - 이벤트 기반 프로그래밍에서 이벤트 디스패치 시스템의 구현과 활용
+* [약한참조](weak-references) - C++의 약한 참조, 그리고 언리얼 엔진에서의 활용 방법
+* [프로그래밍 계약 조건](programming-contracts) - 프리컨디션, 포스트컨디션, 함수 시그니처에 관한 개념과 활용
 
 ## Algorithms
 * [정렬 알고리즘](sorting-algorithms) - 다양한 정렬 알고리즘의 원리와 특징
@@ -28,6 +40,9 @@ hide_description: false
 ## Game Development Fundamentals
 * [게임 개발자를 위한 수학](game-math) - 벡터, 행렬, 삼각함수 등 게임 개발에 필요한 수학
 * [벡터의 내적과 외적](vector-operations) - 게임 개발에서의 벡터 내적/외적 활용
+* [삼각함수](trigonometric-function) - 게임 개발에서의 삼각함수 활용
+* [행렬](matrix) - 게임 개발에서의 행렬 활용
+* [쿼터니언](quaternion) - 게임 개발에서의 쿼터니언 활용
 * [곡선과 스플라인](curves-and-splines) - 게임에서 사용되는 곡선과 스플라인 이론
 * [게임 보간 처리 기법](game-interpolation) - 선형/구면/에르미트/베지어/스플라인 보간법의 이해와 응용
 * [이징 함수](easing-functions) - 자연스러운 애니메이션을 위한 이징 함수의 종류와 활용
@@ -63,8 +78,6 @@ hide_description: false
 * [FTransform 보간 처리](transform-interpolation) - 언리얼 엔진에서 FTransform 타입의 올바른 보간 처리
 * [히트박스와 허트박스](game-hitbox) - 게임 충돌 처리의 기본 요소
 * [공간 분할 구조 (Spatial Partitioning)](spatial-partitioning) - 게임 개발에서 활용되는 공간 분할 구조의 개념과 종류, 활용 방법
-* [약한참조](weak-references) - C++의 약한 참조, 그리고 언리얼 엔진에서의 활용 방법
-* [프로그래밍 계약 조건](programming-contracts) - 프리컨디션, 포스트컨디션, 함수 시그니처에 관한 개념과 활용
 
 ## GAME PHYSICS ENGINE Development
 ### Chapter 2. THE MATHEMATICS OF PARTICLES

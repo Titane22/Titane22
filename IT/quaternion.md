@@ -232,3 +232,203 @@ void ToEulerAngles(const Quaternion& q, float& outPitchDegrees, float& outYawDeg
 }
 ```
 
+## 게임에서의 쿼터니언 활용
+
+### 1. 벡터 회전
+쿼터니언을 사용하여 벡터를 회전시키는 방법입니다:
+
+```cpp
+Vector3 RotateVector(const Vector3& v, const Quaternion& q) {
+    // v' = q * v * q^(-1)
+    
+    // 계산 최적화를 위한 구현
+    Vector3 qvec(q.x, q.y, q.z);
+    Vector3 uv = Cross(qvec, v);
+    Vector3 uuv = Cross(qvec, uv);
+    
+    return v + ((uv * q.w) + uuv) * 2.0f;
+}
+```
+
+### 2. 쿼터니언 구면 선형 보간 (SLERP)
+두 회전 간의 부드러운 보간을 위한 SLERP(Spherical Linear Interpolation) 구현:
+
+```cpp
+Quaternion Slerp(const Quaternion& q1, const Quaternion& q2, float t) {
+    // 경계 조건 처리
+    if (t <= 0.0f) return q1;
+    if (t >= 1.0f) return q2;
+    
+    // 단위 쿼터니언 보장
+    Quaternion q1n = Normalize(q1);
+    Quaternion q2n = Normalize(q2);
+    
+    // 내적 계산 (쿼터니언 사이의 각도 관련)
+    float dot = q1n.x * q2n.x + q1n.y * q2n.y + q1n.z * q2n.z + q1n.w * q2n.w;
+    
+    // 가장 짧은 경로로 보간하기 위한 처리
+    if (dot < 0.0f) {
+        q2n = Quaternion(-q2n.x, -q2n.y, -q2n.z, -q2n.w);
+        dot = -dot;
+    }
+    
+    // 두 쿼터니언이 매우 가까우면 선형 보간
+    if (dot > 0.9995f) {
+        return Normalize(Quaternion(
+            q1n.x * (1.0f - t) + q2n.x * t,
+            q1n.y * (1.0f - t) + q2n.y * t,
+            q1n.z * (1.0f - t) + q2n.z * t,
+            q1n.w * (1.0f - t) + q2n.w * t
+        ));
+    }
+    
+    // 구면 선형 보간 계산
+    float angle = acos(dot);
+    float sinAngle = sin(angle);
+    float invSinAngle = 1.0f / sinAngle;
+    
+    float coeff1 = sin((1.0f - t) * angle) * invSinAngle;
+    float coeff2 = sin(t * angle) * invSinAngle;
+    
+    return Quaternion(
+        q1n.x * coeff1 + q2n.x * coeff2,
+        q1n.y * coeff1 + q2n.y * coeff2,
+        q1n.z * coeff1 + q2n.z * coeff2,
+        q1n.w * coeff1 + q2n.w * coeff2
+    );
+}
+```
+
+### 3. 애니메이션 블렌딩
+게임 캐릭터의 애니메이션 블렌딩에 쿼터니언을 활용하는 예시:
+
+```cpp
+class AnimationBlender {
+private:
+    Quaternion currentRotation;
+    Quaternion targetRotation;
+    float blendSpeed;
+    
+public:
+    void Update(float deltaTime) {
+        // SLERP를 사용한 회전 보간
+        float t = min(1.0f, deltaTime * blendSpeed);
+        currentRotation = Slerp(currentRotation, targetRotation, t);
+    }
+    
+    void SetTargetRotation(const Quaternion& target, float speed) {
+        targetRotation = target;
+        blendSpeed = speed;
+    }
+    
+    Matrix4x4 GetRotationMatrix() {
+        return QuaternionToMatrix(currentRotation);
+    }
+};
+```
+
+### 4. 카메라 제어
+게임 카메라 제어에 쿼터니언을 활용하는 예시:
+
+```cpp
+class Camera {
+private:
+    Vector3 position;
+    Quaternion rotation;
+    
+public:
+    void LookAt(const Vector3& target) {
+        Vector3 direction = Normalize(target - position);
+        Vector3 up = Vector3(0.0f, 1.0f, 0.0f);
+        
+        // 방향 벡터를 쿼터니언으로 변환
+        Vector3 forward = Vector3(0.0f, 0.0f, 1.0f);
+        Vector3 rotationAxis = Cross(forward, direction);
+        
+        if (Length(rotationAxis) < EPSILON) {
+            // 방향이 이미 일치하는 경우
+            rotation = Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+            return;
+        }
+        
+        rotationAxis = Normalize(rotationAxis);
+        float angle = acos(Dot(forward, direction));
+        
+        rotation = FromAxisAngle(rotationAxis, angle * 180.0f / PI);
+    }
+    
+    void Rotate(float pitchDegrees, float yawDegrees) {
+        Quaternion pitchRotation = FromAxisAngle(Vector3(1.0f, 0.0f, 0.0f), pitchDegrees);
+        Quaternion yawRotation = FromAxisAngle(Vector3(0.0f, 1.0f, 0.0f), yawDegrees);
+        
+        // 회전 조합 (순서 중요: yaw -> pitch)
+        rotation = Multiply(Multiply(rotation, yawRotation), pitchRotation);
+        rotation = Normalize(rotation);
+    }
+    
+    Matrix4x4 GetViewMatrix() {
+        // 쿼터니언에서 회전 행렬 계산
+        Matrix4x4 rotMatrix = QuaternionToMatrix4x4(rotation);
+        
+        // 위치 정보를 포함한 뷰 행렬 생성
+        Matrix4x4 viewMatrix = rotMatrix;
+        viewMatrix[3][0] = -Dot(Vector3(viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0]), position);
+        viewMatrix[3][1] = -Dot(Vector3(viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1]), position);
+        viewMatrix[3][2] = -Dot(Vector3(viewMatrix[0][2], viewMatrix[1][2], viewMatrix[2][2]), position);
+        
+        return viewMatrix;
+    }
+};
+```
+
+## 쿼터니언의 장점과 주의사항
+
+### 1. 장점
+- **짐벌락 회피**: 오일러 각도의 주요 문제인 짐벌락(gimbal lock)을 방지
+- **부드러운 보간**: SLERP를 통한 자연스러운 회전 보간
+- **메모리 효율성**: 회전 행렬(9개 요소)보다 적은 값(4개 요소)으로 회전 표현
+- **수치적 안정성**: 누적 오차가 적음
+
+### 2. 주의사항
+- **성능 vs 가독성**: 실제 적용 시 행렬 변환이 필요할 수 있어 추가 계산 발생
+- **정규화 필요**: 반복적인 연산 후 수치 오차로 인해 정규화가 필요
+- **학습 곡선**: 직관적인 이해가 어려울 수 있음
+
+```cpp
+// 쿼터니언 정규화의 중요성 예시
+void UpdateObjectRotation(GameObject& obj, const Quaternion& additionalRotation) {
+    // 회전 적용
+    obj.rotation = Multiply(obj.rotation, additionalRotation);
+    
+    // 수치 오차 방지를 위한 주기적 정규화
+    if (++obj.updateCount % 10 == 0) {
+        obj.rotation = Normalize(obj.rotation);
+    }
+}
+```
+
+### 3. 행렬과 쿼터니언 선택 지침
+- **단순 회전 표현**: 쿼터니언 사용
+- **계층적 변환**: 행렬 사용
+- **회전 보간**: 쿼터니언 + SLERP
+- **완전한 변환(이동+회전+크기)**: 행렬 사용
+
+```cpp
+class Transform {
+private:
+    Vector3 position;
+    Quaternion rotation;  // 회전은 쿼터니언으로 표현
+    Vector3 scale;
+    Matrix4x4 worldMatrix; // 최종 변환은 행렬로 표현
+    
+public:
+    void UpdateWorldMatrix() {
+        // 쿼터니언을 회전 행렬로 변환
+        Matrix4x4 rotMatrix = QuaternionToMatrix4x4(rotation);
+        
+        // 이동, 회전, 크기 결합
+        worldMatrix = CreateTransformMatrix(position, rotMatrix, scale);
+    }
+};
+```
+

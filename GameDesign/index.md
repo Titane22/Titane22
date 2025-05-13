@@ -25,6 +25,8 @@ lang: ja
 * [天才性成長能力値システム](genius-growth-system) - ゲームにおける天才性と成長を表現する能力値システムの設計
 * [適応型エンカウント](adaptive-encounter) - プレイヤーの傾向に応じて動的に調整される戦闘頻度設定システム 
 
+## My Video Editing
+* [Fan's Movie](https://youtu.be/L2DOcr1Mmns)
 
 ## Game Maker's ToolKit
 * [ゲーム自身が自分をデザインしたゲームたち](game-design-itself) - ゲーム自身が自分をデザインしたゲームたち

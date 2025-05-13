@@ -36,14 +36,22 @@ hide_description: false
 #### Ludonarrative Dissonance
 * [The Last of Us 2 epitomizes one of gaming's longest debates](https://www.polygon.com/2020/6/26/21304642/the-last-of-us-2-violence)
 * [Ludonarrative Dissonance in Bioshock](https://clicknothing.typepad.com/click_nothing/2007/10/ludonarrative-d.html)
+
 #### Immersive Sims
 * [The designers of Dishonored, Bioshock 2 and Deus Ex swap stories about making PC's most complex games](https://www.pcgamer.com/the-designers-of-dishonored-bioshock-2-and-deus-ex-swap-stories-about-making-pcs-most-complex-games/3/)
 * [Immersive Sim is a Design Philosophy, Not a Genre](https://rosodudemods.wordpress.com/2020/12/14/immersive-sim-is-a-design-philosophy-not-a-genre/)
 * [Five Pillars of Immersive Sims](https://80.lv/articles/five-pillars-of-immersive-sims/)
+
 #### Robot
 [How to create a 'fair' auto-aiming system in a robot shooter](https://www.gamedeveloper.com/design/how-to-create-a-fair-auto-aiming-system-in-a-robot-shooter-)
+
 #### Open World
 [任天堂はゼルダのオープンワールド問題をどう解決したか](https://www.4gamer.net/games/341/G034168/20170901120/)
 [The Most 'Alive' Game Ecosystems](https://youtu.be/NB0XmexIa5s?si=a4Ouvf0qeDJWRYP5)
+
 #### Level Design
 [What is Level Design?](https://www.youtube.com/watch?v=LKHvTrk6S_8)
+
+#### Camera
+[The camera angle as an expressive resource and narrative booster in video games](https://www.gamedeveloper.com/design/the-camera-angle-as-an-expressive-resource-and-narrative-booster-in-video-games)
+[The Forgotten Art of Fixed Camera Games](https://yagmanx.medium.com/the-forgotten-art-of-fixed-camera-games-1cb8e3dda8e7)

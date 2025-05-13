@@ -56,3 +56,7 @@ hide_description: false
 #### Camera Tequnique
 [The camera angle as an expressive resource and narrative booster in video games](https://www.gamedeveloper.com/design/the-camera-angle-as-an-expressive-resource-and-narrative-booster-in-video-games)
 [The Forgotten Art of Fixed Camera Games](https://yagmanx.medium.com/the-forgotten-art-of-fixed-camera-games-1cb8e3dda8e7)
+
+#### Horror
+[Climbing inside fear with the makers of Little Nightmares 2](https://www.eurogamer.net/fear-with-the-makers-of-little-nightmares-2)
+[The anatomy of a scare: how do games frighten you?](https://www.eurogamer.net/the-anatomy-of-a-scare-how-do-games-frighten-you)

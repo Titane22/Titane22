@@ -11,6 +11,7 @@ hide_description: false
 ## Reviews
 * [レッドデッドリデムション2 エンディング後、アーサーでプレイできない理由](https://open.substack.com/pub/titane2/p/2?r=554c7i&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true) - Read Dead Redemption 2
 * [メタファー：リファンタジオーストーリーレビュー](https://open.substack.com/pub/titane2/p/4a9?r=554c7i&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true) - メタファー：リファンタジオ
+* [スプリットフィクションのレビュー](https://open.substack.com/pub/titane2/p/740?r=554c7i&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true) - スプリットフィクションのレビュー
 * [スベン·ビンケの2025 GOTY予言](https://titane2.substack.com/p/2025-goty?r=554c7i) - スベン·ビンケの2025 GOTY予言
 
 ## Insight(Game Deisgn)
@@ -52,6 +53,6 @@ hide_description: false
 #### Level Design
 [What is Level Design?](https://www.youtube.com/watch?v=LKHvTrk6S_8)
 
-#### Camera
+#### Camera Tequnique
 [The camera angle as an expressive resource and narrative booster in video games](https://www.gamedeveloper.com/design/the-camera-angle-as-an-expressive-resource-and-narrative-booster-in-video-games)
 [The Forgotten Art of Fixed Camera Games](https://yagmanx.medium.com/the-forgotten-art-of-fixed-camera-games-1cb8e3dda8e7)

@@ -60,3 +60,6 @@ hide_description: false
 #### Horror
 [Climbing inside fear with the makers of Little Nightmares 2](https://www.eurogamer.net/fear-with-the-makers-of-little-nightmares-2)
 [The anatomy of a scare: how do games frighten you?](https://www.eurogamer.net/the-anatomy-of-a-scare-how-do-games-frighten-you)
+
+#### AI
+[Square Enix is testing AI-driven fictional language generation](https://www.gamedeveloper.com/programming/square-enix-is-testing-ai-driven-fictional-language-generation)

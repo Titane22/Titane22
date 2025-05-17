@@ -1,31 +1,31 @@
 ---
 layout: post
-title: 현대해상 하이포털 UI 개선 프로젝트
+title: 現代海上ハイポータルUI改善プロジェクト
 description: >
-  현대해상 하이포털의 UI/UX 개선 프로젝트입니다.
+  現代海上ハイポータルのUI/UX改善プロジェクトです。
 sitemap: false
 hide_last_modified: true
 categories: [project]
 tags: [activex, non-activex, ui-improvement]
 ---
 
-## 현대해상 하이포털 UI 개선 [2022.11 - 2023.11]
+## 現代海上ハイポータルUI改善 [2022.11 - 2023.11]
 
-- ActiveX에서 Non-ActiveX로 신규 개발
-- 인터넷 팩스 뷰어 프로그램 추가 개발
-- 단체 테스트, 결합 테스트 실시
-- 유지 보수 및 고객 문의 대응
-- 트러블 슈팅
+- ActiveXからNon-ActiveXへの新規開発
+- インターネットファックスビューアプログラム追加開発
+- 単体テスト、結合テスト実施
+- 保守および顧客問い合わせ対応
+- トラブルシューティング
 
-## 주요 성과
-- ActiveX → Non-ActiveX 대체 완료로 보안성 향상 및 기존 불편사항 개선
-- 현장 만족도 대폭 향상
+## 主な成果
+- ActiveX → Non-ActiveX代替完了によるセキュリティ向上および既存の不便事項改善
+- 現場満足度大幅向上
 
-## 개발 환경
-- **개발 언어**: C#
-- **운영체제**: Windows
-- **데이터베이스**: Oracle
-- **프레임워크**: .NET Framework
+## 開発環境
+- **開発言語**: C#
+- **OS**: Windows
+- **データベース**: Oracle
+- **フレームワーク**: .NET Framework
 
-## 프로젝트 규모
-- 전체 인원: 15명 
+## プロジェクト規模
+- 全体人員: 15名 

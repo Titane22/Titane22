@@ -1,29 +1,29 @@
 ---
 layout: post
-title: 스크린 골프 게임 개발 프로젝트
+title: スクリーンゴルフゲーム開発プロジェクト
 description: >
-  Unity 기반의 스크린 골프 게임 SwingNaviAce 개발 프로젝트입니다.
+  UnityベースのスクリーンゴルフゲームSwingNaviAce開発プロジェクトです。
 sitemap: false
 hide_last_modified: true
 categories: [project]
 tags: [unity, c-sharp, golf-game]
 ---
 
-## SwingNaviAce [2023.10 - 현재]
+## SwingNaviAce [2023.10 - 現在]
 
-- Hazard/OB 판정 로직 개선
-- 기존 UI 개선 및 신규 UI 추가 및 로직개선
-- 스윙 분석 화면 설계 및 구축
-- 골프공 이펙트 추가
-- 신규 골프 코스 제작을 위한 기존 맵 구성 분석
+- ハザード/OB判定ロジック改善
+- 既存UI改善および新規UI追加およびロジック改善
+- スイング分析画面設計および構築
+- ゴルフボールエフェクト追加
+- 新規ゴルフコース制作のための既存マップ構成分析
 
-## 주요 성과
-- Fiteasy 이상의 업체에 100대 이상 납품 완료
+## 主な成果
+- Fiteasy以上の企業に100台以上納品完了
 
-## 개발 환경
-- **개발 언어**: C#
-- **운영체제**: Windows
-- **프레임워크**: Unity
+## 開発環境
+- **開発言語**: C#
+- **OS**: Windows
+- **フレームワーク**: Unity
 
-## 프로젝트 규모
-- 전체 인원: 13명 
+## プロジェクト規模
+- 全体人員: 13名 

@@ -44,22 +44,22 @@ hide_description: false
 * [Five Pillars of Immersive Sims](https://80.lv/articles/five-pillars-of-immersive-sims/)
 
 #### Robot
-[How to create a 'fair' auto-aiming system in a robot shooter](https://www.gamedeveloper.com/design/how-to-create-a-fair-auto-aiming-system-in-a-robot-shooter-)
+* [How to create a 'fair' auto-aiming system in a robot shooter](https://www.gamedeveloper.com/design/how-to-create-a-fair-auto-aiming-system-in-a-robot-shooter-)
 
 #### Open World
-[任天堂はゼルダのオープンワールド問題をどう解決したか](https://www.4gamer.net/games/341/G034168/20170901120/)
-[The Most 'Alive' Game Ecosystems](https://youtu.be/NB0XmexIa5s?si=a4Ouvf0qeDJWRYP5)
+* [任天堂はゼルダのオープンワールド問題をどう解決したか](https://www.4gamer.net/games/341/G034168/20170901120/)
+* [The Most 'Alive' Game Ecosystems](https://youtu.be/NB0XmexIa5s?si=a4Ouvf0qeDJWRYP5)
 
 #### Level Design
-[What is Level Design?](https://www.youtube.com/watch?v=LKHvTrk6S_8)
+* [What is Level Design?](https://www.youtube.com/watch?v=LKHvTrk6S_8)
 
 #### Camera Tequnique
-[The camera angle as an expressive resource and narrative booster in video games](https://www.gamedeveloper.com/design/the-camera-angle-as-an-expressive-resource-and-narrative-booster-in-video-games)
-[The Forgotten Art of Fixed Camera Games](https://yagmanx.medium.com/the-forgotten-art-of-fixed-camera-games-1cb8e3dda8e7)
+* [The camera angle as an expressive resource and narrative booster in video games](https://www.gamedeveloper.com/design/the-camera-angle-as-an-expressive-resource-and-narrative-booster-in-video-games)
+* [The Forgotten Art of Fixed Camera Games](https://yagmanx.medium.com/the-forgotten-art-of-fixed-camera-games-1cb8e3dda8e7)
 
 #### Horror
-[Climbing inside fear with the makers of Little Nightmares 2](https://www.eurogamer.net/fear-with-the-makers-of-little-nightmares-2)
-[The anatomy of a scare: how do games frighten you?](https://www.eurogamer.net/the-anatomy-of-a-scare-how-do-games-frighten-you)
+* [Climbing inside fear with the makers of Little Nightmares 2](https://www.eurogamer.net/fear-with-the-makers-of-little-nightmares-2)
+* [The anatomy of a scare: how do games frighten you?](https://www.eurogamer.net/the-anatomy-of-a-scare-how-do-games-frighten-you)
 
 #### AI
-[Square Enix is testing AI-driven fictional language generation](https://www.gamedeveloper.com/programming/square-enix-is-testing-ai-driven-fictional-language-generation)
+* [Square Enix is testing AI-driven fictional language generation](https://www.gamedeveloper.com/programming/square-enix-is-testing-ai-driven-fictional-language-generation)

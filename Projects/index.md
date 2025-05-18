@@ -63,3 +63,7 @@ hide_description: false
 
 #### AI
 * [Square Enix is testing AI-driven fictional language generation](https://www.gamedeveloper.com/programming/square-enix-is-testing-ai-driven-fictional-language-generation)
+* [게임과 AI #3. 블레이드 & 소울과 게임 AI Part. 2](https://about.ncsoft.com/news/article/game_ai_03_bns_part2)
+
+#### Physics
+* [게임과 AI #3. 블레이드 & 소울과 게임 AI Part. 2](https://about.ncsoft.com/news/article/game_ai_03_bns_part2)

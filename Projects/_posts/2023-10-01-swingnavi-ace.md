@@ -27,3 +27,5 @@ tags: [unity, c-sharp, golf-game]
 
 ## プロジェクト規模
 - 全体人員: 13名 
+
+[![SwingNaviAce デモ動画](https://img.youtube.com/vi/gF-8UnAwxfk/0.jpg)](https://youtu.be/gF-8UnAwxfk?si=zgF1BLLUkya4079V)

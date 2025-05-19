@@ -19,6 +19,7 @@ hide_description: false
 * [ControlのAshtray Mazeミッションシーケンス](https://titane2.substack.com/p/control-ashtray-maze?r=554c7i) - ControlのAshtray Mazeミッションシーケンス
 * [時代順に選んだ現代ゲームに影響を与えたゲーム30選](https://titane2.substack.com/p/30?r=554c7i) - 時代順に選んだ現代ゲームに影響を与えたゲーム30選
 * [HD-2D、スクウェア·エニックスがドットを現代的に解釈した方式](https://titane2.substack.com/p/hd-2d?r=554c7i) - HD-2D、スクウェア·エニックスがドットを現代的に解釈した方式
+* [JRPGの境界線](https://titane2.substack.com/p/jrpg) - JRPG 定義と発展
 
 ## Development
 * [逆運動学(Inverse Kinematics)と逆力学(Inverse Dynamics)](https://open.substack.com/pub/titane2/p/inverse-kinematics-inverse-dynamics?r=554c7i&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true) - Physics
@@ -67,3 +68,6 @@ hide_description: false
 
 #### Physics
 * [게임과 AI #3. 블레이드 & 소울과 게임 AI Part. 2](https://about.ncsoft.com/news/article/game_ai_03_bns_part2)
+
+#### JRPG
+* [海を渡った日本のゲームの子孫たち第3回　JRPG](https://mediag.bunka.go.jp/article/article-18856/)

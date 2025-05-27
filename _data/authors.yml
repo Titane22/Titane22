@@ -27,7 +27,7 @@ author1:
   # Rearrange to change the order in which they appear
   # You can also provide an absolute URL (starting with https://) instead of usernames
   social:
-    twitter:         TitanProduction
+    # twitter:         TitanProduction
     github:          Titane22
     # email:           <mail@domain.tld>
     # rss:             https://<url>/feed.xml
@@ -93,5 +93,5 @@ author2:
     Open `_data/authors.yml` to edit this text.
 
   picture:           https://placehold.it/128x128
-  twitter:           <username>
+  # twitter:           <username>
   github:            <username>

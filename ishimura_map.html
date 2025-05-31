@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데드 스페이스1 - USG 이시무라 호 지도</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #ff6b6b;
+            font-size: 2.5em;
+        }
+
+        .ship-container {
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(90deg, #0f3460 0%, #16213e 50%, #0f3460 100%);
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #ffd700;
+        }
+
+        .deck {
+            position: absolute;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .deck:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        /* 덱별 색상 및 위치 */
+        .bridge {
+            background: #ff6b6b;
+            top: 50px;
+            left: 50px;
+            width: 200px;
+            height: 80px;
+        }
+
+        .medical {
+            background: #4ecdc4;
+            top: 150px;
+            left: 100px;
+            width: 180px;
+            height: 100px;
+        }
+
+        .engineering {
+            background: #45b7d1;
+            top: 450px;
+            left: 80px;
+            width: 200px;
+            height: 120px;
+        }
+
+        .flight {
+            background: #96ceb4;
+            top: 300px;
+            left: 300px;
+            width: 150px;
+            height: 80px;
+        }
+
+        .hydroponics {
+            background: #95e1d3;
+            top: 80px;
+            left: 500px;
+            width: 160px;
+            height: 90px;
+        }
+
+        .mining {
+            background: #feca57;
+            top: 200px;
+            left: 700px;
+            width: 180px;
+            height: 140px;
+        }
+
+        .crew {
+            background: #ff9ff3;
+            top: 400px;
+            left: 600px;
+            width: 160px;
+            height: 90px;
+        }
+
+        .maintenance {
+            background: #a8e6cf;
+            top: 580px;
+            left: 300px;
+            width: 140px;
+            height: 70px;
+        }
+
+        .ore-storage {
+            background: #ffd93d;
+            top: 350px;
+            left: 900px;
+            width: 160px;
+            height: 110px;
+        }
+
+        /* 트램 시스템 */
+        .tram-line {
+            position: absolute;
+            background: #ffd700;
+            height: 4px;
+            border-radius: 2px;
+            box-shadow: 0 0 10px #ffd700;
+        }
+
+        .tram-horizontal {
+            top: 380px;
+            left: 150px;
+            width: 800px;
+        }
+
+        .tram-vertical-1 {
+            top: 150px;
+            left: 200px;
+            width: 4px;
+            height: 230px;
+        }
+
+        .tram-vertical-2 {
+            top: 300px;
+            left: 750px;
+            width: 4px;
+            height: 150px;
+        }
+
+        /* 챕터 경로 표시 */
+        .chapter-path {
+            position: absolute;
+            background: rgba(255, 107, 107, 0.6);
+            border: 2px dashed #ff6b6b;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ffffff;
+            z-index: 5;
+        }
+
+        .chapter-1 { top: 320px; left: 320px; }
+        .chapter-2 { top: 180px; left: 130px; }
+        .chapter-3 { top: 480px; left: 130px; }
+        .chapter-4 { top: 80px; left: 80px; }
+        .chapter-5 { top: 200px; left: 150px; }
+        .chapter-6 { top: 110px; left: 530px; }
+        .chapter-7 { top: 250px; left: 750px; }
+        .chapter-8 { top: 110px; left: 120px; }
+        .chapter-9 { top: 650px; left: 500px; }
+        .chapter-10 { top: 430px; left: 650px; }
+        .chapter-11 { top: 350px; left: 330px; }
+        .chapter-12 { top: 700px; left: 600px; }
+
+        /* 정보 패널 */
+        .info-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            display: none;
+            z-index: 100;
+        }
+
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            border: 1px solid #ffd700;
+        }
+
+        .legend h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+            border: 1px solid #fff;
+        }
+
+        .ship-stats {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ff6b6b;
+        }
+
+        .ship-stats h4 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .ship-stats p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 USG 이시무라 호 (USG Ishimura) 지도</h1>
+        
+        <div class="ship-container">
+            <!-- 트램 시스템 -->
+            <div class="tram-line tram-horizontal"></div>
+            <div class="tram-line tram-vertical-1"></div>
+            <div class="tram-line tram-vertical-2"></div>
+            
+            <!-- 덱들 -->
+            <div class="deck bridge" onclick="showInfo('bridge')">
+                브리지<br>(Bridge)
+            </div>
+            
+            <div class="deck medical" onclick="showInfo('medical')">
+                의료 덱<br>(Medical Deck)
+            </div>
+            
+            <div class="deck engineering" onclick="showInfo('engineering')">
+                엔지니어링 덱<br>(Engineering Deck)
+            </div>
+            
+            <div class="deck flight" onclick="showInfo('flight')">
+                플라이트 덱<br>(Flight Deck)
+            </div>
+            
+            <div class="deck hydroponics" onclick="showInfo('hydroponics')">
+                수경재배 덱<br>(Hydroponics Deck)
+            </div>
+            
+            <div class="deck mining" onclick="showInfo('mining')">
+                채굴 덱<br>(Mining Deck)
+            </div>
+            
+            <div class="deck crew" onclick="showInfo('crew')">
+                승무원 덱<br>(Crew Deck)
+            </div>
+            
+            <div class="deck maintenance" onclick="showInfo('maintenance')">
+                정비 덱<br>(Maintenance Deck)
+            </div>
+            
+            <div class="deck ore-storage" onclick="showInfo('ore-storage')">
+                광석 저장소<br>(Ore Storage)
+            </div>
+            
+            <!-- 챕터 경로 -->
+            <div class="chapter-path chapter-1" title="Chapter 1: New Arrivals">1</div>
+            <div class="chapter-path chapter-2" title="Chapter 2: Intensive Care">2</div>
+            <div class="chapter-path chapter-3" title="Chapter 3: Course Correction">3</div>
+            <div class="chapter-path chapter-4" title="Chapter 4: Obliteration Imminent">4</div>
+            <div class="chapter-path chapter-5" title="Chapter 5: Lethal Devotion">5</div>
+            <div class="chapter-path chapter-6" title="Chapter 6: Environmental Hazard">6</div>
+            <div class="chapter-path chapter-7" title="Chapter 7: Into the Void">7</div>
+            <div class="chapter-path chapter-8" title="Chapter 8: Search and Rescue">8</div>
+            <div class="chapter-path chapter-9" title="Chapter 9: Dead on Arrival">9</div>
+            <div class="chapter-path chapter-10" title="Chapter 10: End of Days">10</div>
+            <div class="chapter-path chapter-11" title="Chapter 11: Alternate Solutions">11</div>
+            <div class="chapter-path chapter-12" title="Chapter 12: Dead Space">12</div>
+        </div>
+
+        <!-- 정보 패널 -->
+        <div class="info-panel" id="infoPanel">
+            <h3 id="deckTitle">덱 정보</h3>
+            <div id="deckDescription">덱을 클릭하면 정보가 표시됩니다.</div>
+        </div>
+
+        <!-- 범례 -->
+        <div class="legend">
+            <h3>🗺️ 지도 범례</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff6b6b;"></div>
+                <span>브리지 (함선 조종실)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ecdc4;"></div>
+                <span>의료 덱 (병원 및 연구실)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #45b7d1;"></div>
+                <span>엔지니어링 덱 (엔진실)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #96ceb4;"></div>
+                <span>플라이트 덱 (격납고)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #95e1d3;"></div>
+                <span>수경재배 덱 (식량 생산)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #feca57;"></div>
+                <span>채굴 덱 (행성 파쇄 작업)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff9ff3;"></div>
+                <span>승무원 덱 (거주 구역)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #a8e6cf;"></div>
+                <span>정비 덱 (수리 작업)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffd93d;"></div>
+                <span>광석 저장소</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ffd700;"></div>
+                <span>트램 시스템 (이동 경로)</span>
+            </div>
+            <div class="legend-item">
+                <div style="width: 20px; height: 20px; margin-right: 10px; border: 2px dashed #ff6b6b; border-radius: 50%; background: rgba(255, 107, 107, 0.6); display: flex; align-items: center; justify-content: center; font-size: 10px; color: white;">12</div>
+                <span>챕터 진행 순서</span>
+            </div>
+        </div>
+
+        <!-- 함선 정보 -->
+        <div class="ship-stats">
+            <h4>⚙️ USG 이시무라 호 제원</h4>
+            <p><strong>길이:</strong> 1.6km (5,300 feet)</p>
+            <p><strong>승무원:</strong> 1,332명</p>
+            <p><strong>용도:</strong> 행성 파쇄선 (Planet Cracker)</p>
+            <p><strong>소속:</strong> 콩코던스 추출 회사 (CEC)</p>
+            <p><strong>건조:</strong> 2446년</p>
+            <p><strong>마지막 임무:</strong> 아이기스 VII 행성 파쇄</p>
+        </div>
+    </div>
+
+    <script>
+        const deckInfo = {
+            'bridge': {
+                title: '🎯 브리지 (Bridge)',
+                description: `
+                    <strong>Chapter 4, 8:</strong> 함선의 조종실<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 메인 아트리움 (Main Atrium)<br>
+                    • 선장실 (Captain's Nest)<br>
+                    • 관리부 (Administration)<br>
+                    • 통신 시설 (Communications)<br>
+                    • 탈출 포드<br><br>
+                    <strong>보안 등급:</strong> Class 5 (최고 등급)<br>
+                    <strong>특징:</strong> 홀로그래픽 디스플레이 시스템
+                `
+            },
+            'medical': {
+                title: '🏥 의료 덱 (Medical Deck)',
+                description: `
+                    <strong>Chapter 2, 5:</strong> 병원 및 연구 시설<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 응급실 (Emergency Ward)<br>
+                    • 영상 진단실 (Imaging & Diagnostics)<br>
+                    • 연구동 (Research Wing)<br>
+                    • 영안실 (Morgue)<br>
+                    • 바이오랩, 크라이오랩<br><br>
+                    <strong>특징:</strong> 바이러스 및 독성 연구 수행<br>
+                    <strong>감염 상황:</strong> 네크로모프 창궐 시작점
+                `
+            },
+            'engineering': {
+                title: '⚙️ 엔지니어링 덱 (Engineering Deck)',
+                description: `
+                    <strong>Chapter 3:</strong> 함선 엔진 및 동력 시설<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 엔진룸 (Engine Room)<br>
+                    • 중력 원심분리기 (Gravity Centrifuge)<br>
+                    • 연료 저장소 (Fuel Storage)<br>
+                    • 쇼크포인트 드라이브<br><br>
+                    <strong>보안 등급:</strong> Class 5 Engineers만 출입<br>
+                    <strong>특징:</strong> 매우 위험한 산업 지역<br>
+                    <strong>출력:</strong> 525조 킬로그램 리프팅 용량
+                `
+            },
+            'flight': {
+                title: '🚁 플라이트 덱 (Flight Deck)',
+                description: `
+                    <strong>Chapter 1, 11:</strong> 셔틀 격납고<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 메인 격납고 (Main Hangar Bay)<br>
+                    • 출입 라운지 (Departure Lounge)<br>
+                    • 화물 베이 (Cargo Bay)<br>
+                    • 임원용 셔틀 도킹 베이<br><br>
+                    <strong>특징:</strong> USG 켈리온 충돌 지점<br>
+                    <strong>감염 경로:</strong> 콜린 배로우의 셔틀을 통한 감염 시작
+                `
+            },
+            'hydroponics': {
+                title: '🌱 수경재배 덱 (Hydroponics Deck)',
+                description: `
+                    <strong>Chapter 6:</strong> 식량 생산 및 산소 공급<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 식물 성장실 (Vegetation Growth Chambers)<br>
+                    • 식량 저장고 (Food Storage)<br>
+                    • 공기 품질 제어 시설<br>
+                    • 환기 시스템<br><br>
+                    <strong>특징:</strong> 함선 전체의 산소 생산<br>
+                    <strong>위험:</strong> 리바이어던이 식량 저장고를 감염
+                `
+            },
+            'mining': {
+                title: '⛏️ 채굴 덱 (Mining Deck)',
+                description: `
+                    <strong>Chapter 7:</strong> 이시무라 호의 심장부<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 4층 구조의 대형 덱<br>
+                    • 중력 테더 시설<br>
+                    • 소행성 처리 시설<br>
+                    • 광물 제련소<br><br>
+                    <strong>특징:</strong> 함선에서 가장 큰 덱<br>
+                    <strong>기능:</strong> 소행성 파쇄 및 광물 추출<br>
+                    <strong>방어:</strong> 생존자들의 최후 요새
+                `
+            },
+            'crew': {
+                title: '🏠 승무원 덱 (Crew Deck)',
+                description: `
+                    <strong>Chapter 10:</strong> 거주 구역<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 수면실 (Sleeper Bunks)<br>
+                    • 식당 (Mess Hall)<br>
+                    • 무중력 농구장 (Zero-G Basketball)<br>
+                    • 임원 라운지<br>
+                    • 임원용 셔틀 USG-09<br><br>
+                    <strong>특징:</strong> 마커 주변 유니톨로지 신도들의 피난처<br>
+                    <strong>인물:</strong> 닥터 챌러스 머서의 활동 무대
+                `
+            },
+            'maintenance': {
+                title: '🔧 정비 덱 (Maintenance Deck)',
+                description: `
+                    <strong>Chapter 9 (USM Valor):</strong> 셔틀 정비<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 셔틀 베이 47<br>
+                    • 정비 셔틀 23<br>
+                    • 수동 격납고 제어실<br><br>
+                    <strong>특징:</strong> 셔틀 유지보수 전담<br>
+                    <strong>접근:</strong> 제어실 손상 시 수동 개방 가능
+                `
+            },
+            'ore-storage': {
+                title: '💎 광석 저장소 (Ore Storage Deck)',
+                description: `
+                    <strong>Chapter 9:</strong> 채굴된 광물 보관<br><br>
+                    <strong>주요 시설:</strong><br>
+                    • 대형 보관 실린더들<br>
+                    • 무중력 환경<br>
+                    • 거대한 보관실<br><br>
+                    <strong>사건:</strong> USM 발러 충돌 지점<br>
+                    <strong>상태:</strong> 수경재배 덱 바로 아래 위치<br>
+                    <strong>특징:</strong> 충돌로 인해 거의 파괴됨
+                `
+            }
+        };
+
+        function showInfo(deckType) {
+            const panel = document.getElementById('infoPanel');
+            const title = document.getElementById('deckTitle');
+            const description = document.getElementById('deckDescription');
+            
+            if (deckInfo[deckType]) {
+                title.innerHTML = deckInfo[deckType].title;
+                description.innerHTML = deckInfo[deckType].description;
+                panel.style.display = 'block';
+                
+                // 3초 후 자동으로 숨김
+                setTimeout(() => {
+                    panel.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // 클릭 시 패널 숨김
+        document.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('deck')) {
+                document.getElementById('infoPanel').style.display = 'none';
+            }
+        });
+
+        // 키보드 ESC로 패널 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('infoPanel').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -71,3 +71,9 @@ hide_description: false
 
 #### JRPG
 * [海を渡った日本のゲームの子孫たち第3回　JRPG](https://mediag.bunka.go.jp/article/article-18856/)
+
+#### MetroidVania
+* [How do you make world map for metroidvania game?](https://www.reddit.com/r/gamedesign/comments/wj2ilk/how_do_you_make_world_map_for_metroidvania_game/)
+
+#### Immersive Sims
+* [What is the best/recommended method for designing an Immersive Sim?](https://www.reddit.com/r/gamedesign/comments/184p22o/what_is_the_bestrecommended_method_for_designing/)
